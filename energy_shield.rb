@@ -12,12 +12,15 @@ class EnergyShield
         @current_energy = @max_energy if @current_energy > @max_energy
     end
 
-    def num_charges
-        @current_energy / ENERGY_PER_CHARGE
+    def has_charge
+        @current_energy >= ENERGY_PER_CHARGE
     end
 
     def take_hit
-        return false if num_charges == 0
-        @current_energy -= ENERGY_PER_CHARGE
+        if !has_charge
+            false
+        else
+            @current_energy -= ENERGY_PER_CHARGE
+        end
     end
 end
