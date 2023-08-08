@@ -37,3 +37,11 @@ There's ANOTHER power-up called Energy Shield.  It prevents all damage from any 
 If it's a non-lethal hit, an Energy Shield charge is still used.  Luckily, at some point in the game bosses are the only enemies that manage to hit you, and they do not happen often, only every 88.25 seconds.  Meanwhile, Energy Shield takes 120 seconds to refill one charge.  So the bosses will eventually catch up to Energy Shield, with Death Defy sometimes saving a charge and Second Wind buying some recharge time when all charges are spent.  Notably, this gets very very complicated to calculate at this point.
 
 And what's more fun than calculating?  Let's make a simulation!
+
+# Simulation
+
+Death Defy has a 0.3 chance of activating each hit.
+
+Energy Shield can have either 1, 2, or 3 charges, with each charge having 120 energy (recovers 1 energy a second).  If it loses a charge, we subtract 120 energy.  It recovers 88.25 energy between hits, up to its maximum.
+
+Second Wind is the last resort, and is set as a boolean.  Once it's set to `false` it's gone.
